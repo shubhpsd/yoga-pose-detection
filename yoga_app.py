@@ -23,7 +23,7 @@ except ImportError as e:
 st.set_page_config(
     page_title="Yoga Pose Detection",
     page_icon="🧘",
-    layout="centered"  # Using centered layout instead of wide
+    layout="wide"  # Using centered layout instead of wide
 )
 
 class YogaPoseDetector:
