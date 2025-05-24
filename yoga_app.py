@@ -203,7 +203,7 @@ def main():
         
         # Show model status
         if detector.is_model_available():
-            st.success("✅ Full pose classification available")
+            st.success("Full pose classification available")
         else:
             st.warning("⚠️ Running in pose detection only mode")
             if detector.error_message:
