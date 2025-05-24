@@ -41,17 +41,12 @@ Launch the simplified web interface:
 streamlit run simple_app.py
 ```
 
-### Option 3: Individual Components (if needed)
-Extract specific cells from the notebook to run individually.
+### Option 3: Streamlit Cloud Web App
+Access the public app hosted at:
    ```bash
-   # Run individual components from notebook cells if needed
+https://detectpose.streamlit.app/
    ```
 
-### Web Application (Streamlit)
-Launch the interactive web interface:
-```bash
-streamlit run streamlit_app.py
-```
 This provides:
 - Image upload for pose detection
 - Real-time camera mode
@@ -61,7 +56,7 @@ This provides:
 ## 📈 Performance
 
 - **Accuracy**: ~85-95% on validation set (depends on dataset quality)
-- **Speed**: Real-time detection at 30+ FPS
+- **Speed**: Real-time detection
 - **Size**: Lightweight model (~1-5MB)
 
 ## 🔧 Troubleshooting
@@ -74,10 +69,9 @@ This provides:
    python inference.py --mode camera --camera 1
    ```
 
-2. **Low detection confidence**
+2. **Python version mismatch**
    ```bash
-   # Lower confidence threshold
-   python inference.py --mode camera --confidence 0.5
+   The model runs on Python version 3.12 or lower as mediapipe doesn't support the latest 3.13+
    ```
 
 3. **Poor pose detection**
@@ -101,15 +95,6 @@ pip install --upgrade torch torchvision mediapipe opencv-python
 ### Model Tuning
 - Increase epochs for better accuracy
 - Adjust learning rate for faster convergence
-- Use 'improved' model for complex poses
-
-## 📝 Files Description
-
-- **`pose_extractor.py`**: Extracts pose landmarks using MediaPipe
-- **`model.py`**: Neural network architectures
-- **`train.py`**: Training loop with validation and testing
-- **`inference.py`**: Real-time and single image detection
-- **`run_pipeline.py`**: Automated complete pipeline
 
 ## 🤝 Contributing
 
@@ -128,4 +113,4 @@ This project is open source. Feel free to use and modify as needed.
 - **MediaPipe**: For excellent pose estimation
 - **PyTorch**: For deep learning framework
 - **OpenCV**: For image processing
-- **Yoga Community**: For pose knowledge and datasets
+- **Yoga Community**: For pose knowledge and datasets on Kaggle - [Yoga-Poses](https://www.kaggle.com/datasets/shrutisaxena/yoga-pose-image-classification-dataset)
