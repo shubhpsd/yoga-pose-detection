@@ -1,312 +1,0 @@
-
-[     UTC     ] Logs for identifypose.streamlit.app/
-────────────────────────────────────────────────────────────────────────────────────────
-[15:43:25] 🖥 Provisioning machine...
-[15:43:25] 🎛 Preparing system...
-[15:43:25] ⛓ Spinning up manager process...
-[15:43:25] 🚀 Starting up repository: 'yoga-pose-detection', branch: 'main', main module: 'yoga_app.py'
-[15:43:25] 🐙 Cloning repository...
-[15:43:55] 🐙 Cloning into '/mount/src/yoga-pose-detection'...
-Updating files:  17% (1040/6014)Updating files:  18% (1083/6014)Updating files:  19% (1143/6014)Updating files:  20% (1203/6014)Updating files:  21% (1263/6014)Updating files:  22% (1324/6014)Updating files:  23% (1384/6014)Updating files:  24% (1444/6014)Updating files:  25% (1504/6014)Updating files:  26% (1564/6014)Updating files:  27% (1624/6014)Updating files:  28% (1684/6014)Updating files:  29% (1745/6014)Updating files:  29% (1772/6014)Updating files:  30% (1805/6014)Updating files:  31% (1865/6014)Updating files:  32% (1925/6014)Updating files:  33% (1985/6014)Updating files:  34% (2045/6014)Updating files:  35% (2105/6014)Updating files:  36% (2166/6014)Updating files:  37% (2226/6014)Updating files:  38% (2286/6014)Updating files:  39% (2346/6014)Updating files:  40% (2406/6014)Updating files:  41% (2466/6014)Updating files:  42% (2526/6014)Updating files:  42% (2543/6014)Updating files:  43% (2587/6014)Updating files:  44% (2647/6014)Updating files:  45% (2707/6014)Updating files:  46% (2767/6014)Updating files:  47% (2827/6014)Updating files:  48% (2887/6014)Updating files:  49% (2947/6014)Updating files:  50% (3007/6014)Updating files:  51% (3068/6014)Updating files:  51% (3095/6014)Updating files:  52% (3128/6014)Updating files:  53% (3188/6014)Updating files:  54% (3248/6014)Updating files:  55% (3308/6014)Updating files:  56% (3368/6014)Updating files:  57% (3428/6014)Updating files:  58% (3489/6014)Updating files:  59% (3549/6014)Updating files:  60% (3609/6014)Updating files:  61% (3669/6014)Updating files:  62% (3729/6014)Updating files:  62% (3769/6014)Updating files:  63% (3789/6014)Updating files:  64% (3849/6014)Updating files:  65% (3910/6014)Updating files:  66% (3970/6014)Updating files:  67% (4030/6014)Updating files:  68% (4090/6014)Updating files:  69% (4150/6014)Updating files:  70% (4210/6014)Updating files:  71% (4270/6014)Updating files:  71% (4282/6014)Updating files:  72% (4331/6014)Updating files:  73% (4391/6014)Updating files:  74% (4451/6014)Updating files:  75% (4511/6014)Updating files:  76% (4571/6014)Updating files:  77% (4631/6014)Updating files:  78% (4691/6014)Updating files:  79% (4752/6014)Updating files:  80% (4812/6014)Updating files:  81% (4872/6014)Updating files:  82% (4932/6014)Updating files:  83% (4992/6014)Updating files:  84% (5052/6014)Updating files:  85% (5112/6014)Updating files:  86% (5173/6014)Updating files:  87% (5233/6014)Updating files:  88% (5293/6014)Updating files:  89% (5353/6014)Updating files:  90% (5413/6014)Updating files:  91% (5473/6014)Updating files:  92% (5533/6014)Updating files:  93% (5594/6014)Updating files:  93% (5622/6014)Updating files:  94% (5654/6014)Updating files:  95% (5714/6014)Updating files:  96% (5774/6014)Updating files:  97% (5834/6014)Updating files:  98% (5894/6014)Updating files:  99% (5954/6014)Updating files:  99% (6005/6014)Updating files: 100% (6014/6014)Updating files: 100% (6014/6014), done.
-Encountered 2 file(s) that should have been pointers, but weren't:
-	feature_scaler.pkl
-	pose_dataset.npz
-
-[15:43:55] 🐙 Cloned repository!
-[15:43:55] 🐙 Pulling code changes from Github...
-[15:44:04] 📦 Processing dependencies...
-
-──────────────────────────────────────── uv ───────────────────────────────────────────
-
-Using uv pip install.
-Using Python 3.12.10 environment at /home/adminuser/venv
-Resolved 80 packages in 677ms
-Prepared 80 packages in 35.23s
-Installed 80 packages in 449ms
- + absl-py==2.2.2
- + altair==5.5.0
- + attrs==25.3.0
- + blinker==1.9.0
- + cachetools==5.5.2
- + certifi==2025.4.26
- + cffi==1.17.1
- + charset-normalizer==3.4.2
- + click==8.2.1
- + contourpy==1.3.2
- + cycler==0.12.1
- + filelock==3.18.0
- + flatbuffers==25.2.10
- + fonttools==4.58.0
- + fsspec==2025.5.1
- + gitdb==4.0.12
- + gitpython==3.1.44
- + idna==3.10
- +[2025-05-24 15:44:41.470373]  jax==0.6.1
- + jaxlib==0.6.1
- + jinja2==3.1.6
- + joblib==1.5.1
- + jsonschema==4.23.0
- + jsonschema-specifications==2025.4.1
- + kiwisolver==1.4.8
- + markupsafe==3.0.2
- + matplotlib==3.10.3
- + mediapipe==0.10.21
- + ml-dtypes==0.5.1
- + mpmath==[2025-05-24 15:44:41.470620] 1.3.0
- + narwhals==1.40.0
- + networkx==3.4.2
- + numpy==1.26.4
- + nvidia-cublas-cu12==12.6.4.1
- + nvidia-cuda-cupti-cu12==12.6.80
- + nvidia-cuda-nvrtc-cu12==12.6.77
- + nvidia-cuda-runtime-cu12==12.6.77
- + nvidia-cudnn-cu12==9.5.1.17
- + nvidia-cufft-cu12==11.3.0.4
- + nvidia-cufile-cu12==1.11.1.6
- + nvidia-curand-cu12==10.3.7.77
- [2025-05-24 15:44:41.471293] + nvidia-cusolver-cu12==11.7.1.2
- + nvidia-cusparse-cu12==12.5.4.2
- + nvidia-cusparselt-cu12==0.6.3
- + nvidia-nccl-cu12==2.26.2
- + nvidia-nvjitlink-cu12==12.6.85
- + nvidia-nvtx-cu12==12.6.77
- + opencv-contrib-python==4.11.0.86[2025-05-24 15:44:41.471481] 
- + opencv-python==4.11.0.86
- + opt-einsum==3.4.0
- + packaging==24.2
- + pandas==2.2.3
- + pillow==11.2.1
- + protobuf==4.25.7
- + pyarrow==20.0.0
- + pycparser==2.22
- + pydeck==0.9.1[2025-05-24 15:44:41.471682] 
- + pyparsing==3.2.3
- + python-dateutil==2.9.0.post0
- + pytz==2025.2
- + referencing==0.36.2
- + requests==2.32.3
- + rpds-py[2025-05-24 15:44:41.471959] ==0.25.1
- + scipy==1.15.3
- + sentencepiece==0.2.0
- + setuptools==80.8.0
- + six==1.17.0
- + smmap==5.0.2
- + sounddevice==0.5.2
- + [2025-05-24 15:44:41.472150] streamlit==1.45.1
- + sympy==1.14.0
- + tenacity==9.1.2
- + toml==0.10.2
- + torch==[2025-05-24 15:44:41.472327] 2.7.0
- + tornado==6.5.1
- + triton==3.3.0
- + typing-extensions==4.13.2
- + tzdata==2025.2
- + urllib3[2025-05-24 15:44:41.472503] ==2.4.0
- + watchdog==6.0.0
-Checking if Streamlit is installed
-Found Streamlit version 1.45.1 in the environment
-Installing rich for an improved exception logging
-Using uv pip install.
-Using Python 3.12.10 environment at /home/adminuser/venv
-Resolved 4 packages in 135ms
-Prepared 4 packages in 121ms
-Installed 4 packages in 15ms
- + markdown-it-py==3.0.0
- + mdurl[2025-05-24 15:44:43.230187] ==0.1.2
- + pygments==2.19.1
- + rich==14.0.0
-
-────────────────────────────────────────────────────────────────────────────────────────
-
-[15:44:43] 🐍 Python dependencies were installed from /mount/src/yoga-pose-detection/requirements.txt using uv.
-Check if streamlit is installed
-Streamlit is already installed
-[15:44:45] 📦 Processed dependencies!
-Error parsing config toml. This is most likely due to a syntax error in the config.toml file. Please fix it and try again.
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/toml/decoder.py", line 511, in loads
-    ret = decoder.load_line(line, currentlevel, multikey,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/toml/decoder.py", line 781, in load_line
-    raise ValueError("Duplicate keys!")
-ValueError: Duplicate keys!
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/config.py", line 1365, in _update_config_with_toml
-    parsed_config_file = toml.loads(raw_toml)
-                         ^^^^^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/toml/decoder.py", line 514, in loads
-    raise TomlDecodeError(str(err), original, pos)
-toml.decoder.TomlDecodeError: Duplicate keys! (line 20 column 1 char 337)
-
-
-
-────────────────────── Traceback (most recent call last) ───────────────────────
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/exec_code.py:121 in exec_func_with_error_handling                        
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/script_runner.py:645 in code_to_exec                                     
-                                                                                
-  /mount/src/yoga-pose-detection/yoga_app.py:2 in <module>                      
-                                                                                
-      1 import streamlit as st                                                  
-  ❱   2 import cv2                                                              
-      3 import numpy as np                                                      
-      4 import torch                                                            
-      5 import mediapipe as mp                                                  
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:181 in      
-  <module>                                                                      
-                                                                                
-    178 │   if DEBUG: print('OpenCV loader: DONE')                              
-    179                                                                         
-    180                                                                         
-  ❱ 181 bootstrap()                                                             
-    182                                                                         
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/cv2/__init__.py:153 in      
-  bootstrap                                                                     
-                                                                                
-    150 │                                                                       
-    151 │   py_module = sys.modules.pop("cv2")                                  
-    152 │                                                                       
-  ❱ 153 │   native_module = importlib.import_module("cv2")                      
-    154 │                                                                       
-    155 │   sys.modules["cv2"] = py_module                                      
-    156 │   setattr(py_module, "_native", native_module)                        
-                                                                                
-  /usr/local/lib/python3.12/importlib/__init__.py:90 in import_module           
-                                                                                
-     87 │   │   │   if character != '.':                                        
-     88 │   │   │   │   break                                                   
-     89 │   │   │   level += 1                                                  
-  ❱  90 │   return _bootstrap._gcd_import(name[level:], package, level)         
-     91                                                                         
-     92                                                                         
-     93 _RELOADING = {}                                                         
-────────────────────────────────────────────────────────────────────────────────
-ImportError: libGL.so.1: cannot open shared object file: No such file or 
-directory
-────────────────────── Traceback (most recent call last) ───────────────────────
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/exec_code.py:121 in exec_func_with_error_handling                        
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/script_runner.py:645 in code_to_exec                                     
-                                                                                
-  /mount/src/yoga-pose-detection/yoga_app.py:5 in <module>                      
-                                                                                
-      2 import cv2                                                              
-      3 import numpy as np                                                      
-      4 import torch                                                            
-  ❱   5 import mediapipe as mp                                                  
-      6 from PIL import Image                                                   
-      7 import json                                                             
-      8 import joblib                                                           
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/mediapipe/__init__.py:16    
-  in <module>                                                                   
-                                                                                
-    13 # limitations under the License.                                         
-    14                                                                          
-    15 from mediapipe.python import *                                           
-  ❱ 16 import mediapipe.python.solutions as solutions                           
-    17 import mediapipe.tasks.python as tasks                                   
-    18                                                                          
-    19                                                                          
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/mediapipe/python/solutions  
-  /__init__.py:17 in <module>                                                   
-                                                                                
-    14                                                                          
-    15 """MediaPipe Solutions Python API."""                                    
-    16                                                                          
-  ❱ 17 import mediapipe.python.solutions.drawing_styles                         
-    18 import mediapipe.python.solutions.drawing_utils                          
-    19 import mediapipe.python.solutions.face_detection                         
-    20 import mediapipe.python.solutions.face_mesh                              
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/mediapipe/python/solutions  
-  /drawing_styles.py:20 in <module>                                             
-                                                                                
-     17                                                                         
-     18 from mediapipe.python.solutions import face_mesh_connections            
-     19 from mediapipe.python.solutions import hands_connections                
-  ❱  20 from mediapipe.python.solutions.drawing_utils import DrawingSpec        
-     21 from mediapipe.python.solutions.hands import HandLandmark               
-     22 from mediapipe.python.solutions.pose import PoseLandmark                
-     23                                                                         
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/mediapipe/python/solutions  
-  /drawing_utils.py:20 in <module>                                              
-                                                                                
-     17 import math                                                             
-     18 from typing import List, Mapping, Optional, Tuple, Union                
-     19                                                                         
-  ❱  20 import cv2                                                              
-     21 import matplotlib.pyplot as plt                                         
-     22 import numpy as np                                                      
-     23                                                                         
-────────────────────────────────────────────────────────────────────────────────
-ImportError: libGL.so.1: cannot open shared object file: No such file or 
-directory
-2025-05-24 15:45:00.876 Examining the path of torch.classes raised:
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/web/bootstrap.py", line 347, in run
-    if asyncio.get_running_loop().is_running():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/watcher/local_sources_watcher.py", line 217, in get_module_paths
-    potential_paths = extract_paths(module)
-                      ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/watcher/local_sources_watcher.py", line 210, in <lambda>
-    lambda m: list(m.__path__._path),
-                   ^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/torch/_classes.py", line 13, in __getattr__
-    proxy = torch._C._get_custom_class_python_wrapper(self.name, attr)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Tried to instantiate class '__path__._path', but it does not exist! Ensure that it is registered via torch::class_
-────────────────────── Traceback (most recent call last) ───────────────────────
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/exec_code.py:121 in exec_func_with_error_handling                        
-                                                                                
-  /home/adminuser/venv/lib/python3.12/site-packages/streamlit/runtime/scriptru  
-  nner/script_runner.py:645 in code_to_exec                                     
-                                                                                
-  /mount/src/yoga-pose-detection/yoga_app.py:2 in <module>                      
-                                                                                
-      1 import streamlit as st                                                  
-  ❱   2 import cv2                                                              
-      3 import numpy as np                                                      
-      4 import torch                                                            
-      5 import mediapipe as mp                                                  
-────────────────────────────────────────────────────────────────────────────────
-ImportError: libGL.so.1: cannot open shared object file: No such file or 
-directory
-2025-05-24 15:45:01.217 Examining the path of torch.classes raised:
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/web/bootstrap.py", line 347, in run
-    if asyncio.get_running_loop().is_running():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/watcher/local_sources_watcher.py", line 217, in get_module_paths
-    potential_paths = extract_paths(module)
-                      ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/streamlit/watcher/local_sources_watcher.py", line 210, in <lambda>
-    lambda m: list(m.__path__._path),
-                   ^^^^^^^^^^^^^^^^
-  File "/home/adminuser/venv/lib/python3.12/site-packages/torch/_classes.py", line 13, in __getattr__
-    proxy = torch._C._get_custom_class_python_wrapper(self.name, attr)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Tried to instantiate class '__path__._path', but it does not exist! Ensure that it is registered via torch::class_
