@@ -4,7 +4,7 @@ A machine learning system that detects and classifies yoga poses using PyTorch n
 
 ## 🧘 Features
 
-- **95+ Yoga Poses**: Supports classification of 95+ different yoga poses
+- **107 Yoga Poses**: Supports classification of 95+ different yoga poses
 - **Real-time Detection**: Live pose detection using webcam
 - **High Accuracy**: Uses MediaPipe for precise joint tracking
 - **Easy to Use**: Simple pipeline for training and inference
