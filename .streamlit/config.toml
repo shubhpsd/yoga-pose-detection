@@ -1,0 +1,22 @@
+# Streamlit Configuration
+[general]
+# Disable usage stats
+gatherUsageStats = false
+
+[server]
+# Server settings
+port = 8501
+headless = false
+enableCORS = false
+enableXsrfProtection = false
+maxUploadSize = 200
+
+[browser]
+# Browser settings
+gatherUsageStats = false
+showErrorDetails = true
+
+[theme]
+# App theme
+base = "dark"
+primaryColor = "#9d4bff"
