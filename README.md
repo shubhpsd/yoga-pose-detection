@@ -43,9 +43,7 @@ streamlit run simple_app.py
 
 ### Option 3: Streamlit Cloud Web App
 Access the public app hosted at:
-   ```bash
-https://detectpose.streamlit.app/
-   ```
+[detectpose.streamlit.app](https://detectpose.streamlit.app/)
 
 This provides:
 - Image upload for pose detection
