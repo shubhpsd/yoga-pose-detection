@@ -204,6 +204,19 @@ def main():
         # Show model status
         if detector.is_model_available():
             st.success("Full pose classification available")
+            
+            # Display the list of identifiable poses in an expander
+            if detector.pose_names:
+                with st.expander("View all identifiable yoga poses"):
+                    # Create columns for better readability if the list is long
+                    num_poses = len(detector.pose_names)
+                    cols = st.columns(3) # Adjust number of columns as needed
+                    poses_per_col = (num_poses + len(cols) - 1) // len(cols) # Ceiling division
+                    
+                    for i, pose_name in enumerate(detector.pose_names):
+                        col_index = i // poses_per_col
+                        with cols[col_index]:
+                            st.write(f"- {pose_name.replace('_', ' ').title()}")
         else:
             st.warning("⚠️ Running in pose detection only mode")
             if detector.error_message:
