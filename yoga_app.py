@@ -315,6 +315,11 @@ def main():
     except Exception as e:
         st.error(f"Application error: {str(e)}")
         st.info("The app encountered an error during initialization. Please check the logs for more details.")
+    
+    # Add a footer to the main page mentioning the developer and GitHub repository
+    st.markdown("---")
+    st.markdown("**Developed by Shubham Prasad**")
+    st.markdown("**GitHub Repository:** [Yoga Pose Detection](https://github.com/shubhpsd/yoga-pose-detection)")
 
 if __name__ == "__main__":
     main()
