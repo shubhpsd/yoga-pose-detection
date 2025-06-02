@@ -34,6 +34,7 @@ venv/
 
 # macOS
 .DS_Store
+**/.DS_Store
 
 # Training outputs (optional - can be regenerated)
 training_curves.png
