@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yoga Pose Detection | AI-Powered Pose Classification</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link
+      rel="shortcut icon"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIj4KICA8IS0tIFRyZWUgdHJ1bmsgKGJvdHRvbSBvZiBZKSAtLT4KICA8cmVjdCB4PSIxNCIgeT0iMTgiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjOEI0NTEzIiByeD0iMSIvPgogIAogIDwhLS0gTGVmdCBicmFuY2ggb2YgWSAtLT4KICA8cmVjdCB4PSI4IiB5PSI2IiB3aWR0aD0iMyIgaGVpZ2h0PSIxMiIgZmlsbD0iIzIyOEIyMiIgcng9IjEuNSIgdHJhbnNmb3JtPSJyb3RhdGUoMjUgOS41IDEyKSIvPgogIAogIDwhLS0gUmlnaHQgYnJhbmNoIG9mIFkgLS0+CiAgPHJlY3QgeD0iMjEiIHk9IjYiIHdpZHRoPSIzIiBoZWlnaHQ9IjEyIiBmaWxsPSIjMjI4QjIyIiByeD0iMS41IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMjIuNSAxMikiLz4KICA8IS0tIFNtYWxsIGxlYXZlcy9kb3RzIGZvciBkZWNvcmF0aW9uIC0tPgogIDxjaXJjbGUgY3g9IjciIGN5PSI4IiByPSIxLjUiIGZpbGw9IiMzMkNEMzIiLz4KICA8Y2lyY2xlIGN4PSIyNSIgY3k9IjgiIHI9IjEuNSIgZmlsbD0iIzMyQ0QzMiIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iNCIgcj0iMSIgZmlsbD0iIzMyQ0QzMiIvPgogIDxjaXJjbGUgY3g9IjIwIiBjeT0iNCIgcj0iMSIgZmlsbD0iIzMyQ0QzMiIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMiIgcj0iMS41IiBmaWxsPSIjMzJDRDMyIi8+CiAgPGVsbGlwc2UgY3g9IjE2IiBjeT0iMjkiIHJ4PSI4IiByeT0iMiIgZmlsbD0iIzY1NDMyMSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPgo="
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon.svg" />
+    <style>
+      /* Gruvbox Dark Medium Color Scheme */
+      :root {
+        --bg0: #282828;
+        --bg1: #3c3836;
+        --bg2: #504945;
+        --bg3: #665c54;
+        --bg4: #7c6f64;
+        --fg0: #fbf1c7;
+        --fg1: #ebdbb2;
+        --fg2: #d5c4a1;
+        --fg3: #bdae93;
+        --fg4: #a89984;
+        --red: #fb4934;
+        --green: #b8bb26;
+        --yellow: #fabd2f;
+        --blue: #83a598;
+        --purple: #d3869b;
+        --aqua: #8ec07c;
+        --orange: #fe8019;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", system-ui, sans-serif;
+        background: linear-gradient(135deg, var(--bg0), var(--bg1));
+        color: var(--fg1);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
+        border-bottom: 2px solid var(--bg3);
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        color: var(--orange);
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        color: var(--fg3);
+        margin-bottom: 1rem;
+      }
+
+      .tech-stack {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .tech-badge {
+        background: var(--bg2);
+        color: var(--aqua);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid var(--bg3);
+      }
+
+      /* Main Content Grid */
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Upload Section */
+      .upload-section {
+        background: var(--bg1);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 2px solid var(--bg3);
+        transition: border-color 0.3s ease;
+      }
+
+      .upload-section:hover {
+        border-color: var(--orange);
+      }
+
+      .upload-section h2 {
+        color: var(--yellow);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .upload-area {
+        border: 3px dashed var(--bg3);
+        border-radius: 8px;
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .upload-area:hover {
+        border-color: var(--orange);
+        background: var(--bg2);
+      }
+
+      .upload-area.dragover {
+        border-color: var(--green);
+        background: rgba(184, 187, 38, 0.1);
+      }
+
+      .upload-icon {
+        font-size: 3rem;
+        color: var(--orange);
+        margin-bottom: 1rem;
+      }
+
+      .upload-text {
+        color: var(--fg2);
+        margin-bottom: 1rem;
+      }
+
+      .upload-input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .btn {
+        background: var(--orange);
+        color: var(--bg0);
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background: var(--yellow);
+        transform: translateY(-2px);
+      }
+
+      .btn:disabled {
+        background: var(--bg3);
+        color: var(--fg4);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Results Section */
+      .results-section {
+        background: var(--bg1);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 2px solid var(--bg3);
+      }
+
+      .results-section h2 {
+        color: var(--blue);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .image-preview {
+        margin-bottom: 2rem;
+      }
+
+      .image-container {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .preview-image {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        background: var(--bg2);
+      }
+
+      .prediction-results {
+        margin-top: 1rem;
+      }
+
+      .top-prediction {
+        background: var(--bg2);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--green);
+        margin-bottom: 1rem;
+      }
+
+      .pose-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--green);
+        margin-bottom: 0.5rem;
+        text-transform: capitalize;
+      }
+
+      .confidence {
+        font-size: 1.1rem;
+        color: var(--yellow);
+      }
+
+      .all-predictions {
+        background: var(--bg2);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+
+      .prediction-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--bg3);
+      }
+
+      .prediction-item:last-child {
+        border-bottom: none;
+      }
+
+      .prediction-name {
+        color: var(--fg1);
+        text-transform: capitalize;
+      }
+
+      .prediction-confidence {
+        color: var(--aqua);
+        font-weight: 600;
+      }
+
+      /* Loading Animation */
+      .loading {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid var(--bg3);
+        border-top: 4px solid var(--orange);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Info Section */
+      .info-section {
+        background: var(--bg1);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 2px solid var(--bg3);
+        margin-top: 2rem;
+        grid-column: 1 / -1;
+      }
+
+      .info-section h3 {
+        color: var(--purple);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .info-item {
+        background: var(--bg2);
+        padding: 1.2rem;
+        border-radius: 8px;
+      }
+
+      .info-item h4 {
+        color: var(--yellow);
+        margin-bottom: 0.5rem;
+      }
+
+      .info-item p {
+        color: var(--fg3);
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid var(--bg3);
+        margin-top: 3rem;
+        color: var(--fg4);
+      }
+
+      .footer a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: var(--aqua);
+      }
+
+      /* Error Messages */
+      .error {
+        background: rgba(251, 73, 52, 0.1);
+        border: 1px solid var(--red);
+        color: var(--red);
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+
+      /* Hidden class */
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h1>🧘 Yoga Pose Detection</h1>
+        <p>
+          AI-powered classification of 107 yoga poses using advanced neural
+          networks
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">PyTorch</span>
+          <span class="tech-badge">MediaPipe</span>
+          <span class="tech-badge">Neural Networks</span>
+          <span class="tech-badge">Computer Vision</span>
+          <span class="tech-badge">SMOTE</span>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-grid">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <h2>📸 Upload Yoga Pose Image</h2>
+          <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">
+              <p><strong>Drop your image here</strong></p>
+              <p>or click to select a file</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem">
+                Supports: JPG, PNG, WebP
+              </p>
+            </div>
+            <input
+              type="file"
+              id="imageInput"
+              class="upload-input"
+              accept="image/*"
+            />
+          </div>
+          <div style="text-align: center; margin-top: 1rem">
+            <button class="btn" id="analyzeBtn" disabled>
+              🔍 Analyze Pose
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+          <h2>🎯 Detection Results</h2>
+          <div id="resultsContent">
+            <div style="text-align: center; color: var(--fg4); padding: 3rem 0">
+              <div style="font-size: 3rem; margin-bottom: 1rem">🤖</div>
+              <p>
+                Upload an image to see AI-powered yoga pose detection in action!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <h3>🚀 Project Highlights</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <h4>🧠 Advanced Neural Network</h4>
+            <p>
+              Custom attention-based architecture that learns to focus on
+              important body landmarks for each yoga pose.
+            </p>
+          </div>
+          <div class="info-item">
+            <h4>📊 107 Pose Classes</h4>
+            <p>
+              Trained to recognize 107 different yoga poses from Downward Dog to
+              complex arm balances.
+            </p>
+          </div>
+          <div class="info-item">
+            <h4>⚖️ SMOTE Balancing</h4>
+            <p>
+              Uses advanced oversampling techniques to handle class imbalance
+              and improve accuracy.
+            </p>
+          </div>
+          <div class="info-item">
+            <h4>🎯 MediaPipe Integration</h4>
+            <p>
+              Leverages Google's MediaPipe for accurate pose landmark detection
+              in real-time.
+            </p>
+          </div>
+          <div class="info-item">
+            <h4>📈 75%+ Accuracy</h4>
+            <p>
+              Achieves competitive accuracy on this challenging multi-class
+              classification problem.
+            </p>
+          </div>
+          <div class="info-item">
+            <h4>⚡ Optimized Training</h4>
+            <p>
+              AdamW optimizer, cosine annealing, label smoothing, and early
+              stopping for robust training.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          Built by <strong>Shubham Prasad</strong> |
+          <a
+            href="https://github.com/shubhpsd/yoga-pose-detection"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // DOM Elements
+      const uploadArea = document.getElementById("uploadArea");
+      const imageInput = document.getElementById("imageInput");
+      const analyzeBtn = document.getElementById("analyzeBtn");
+      const resultsContent = document.getElementById("resultsContent");
+
+      let selectedImage = null;
+
+      // File Upload Handlers
+      uploadArea.addEventListener("click", () => imageInput.click());
+
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.classList.add("dragover");
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.classList.remove("dragover");
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove("dragover");
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          handleFileSelect(files[0]);
+        }
+      });
+
+      imageInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          handleFileSelect(e.target.files[0]);
+        }
+      });
+
+      analyzeBtn.addEventListener("click", analyzeImage);
+
+      function handleFileSelect(file) {
+        if (!file.type.startsWith("image/")) {
+          showError("Please select a valid image file.");
+          return;
+        }
+
+        selectedImage = file;
+        analyzeBtn.disabled = false;
+
+        // Update upload area to show selected file
+        uploadArea.innerHTML = `
+                <div class="upload-icon">✅</div>
+                <div class="upload-text">
+                    <p><strong>${file.name}</strong></p>
+                    <p>Ready to analyze</p>
+                </div>
+            `;
+      }
+
+      function analyzeImage() {
+        if (!selectedImage) return;
+
+        // Show loading state
+        showLoading();
+
+        // Create FormData and send to backend
+        const formData = new FormData();
+        formData.append("image", selectedImage);
+
+        // Call the actual FastAPI backend
+        fetch("http://localhost:8000/detect-pose", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Convert API response to expected format
+            const results = {
+              success: data.success,
+              predictions: data.predictions || [],
+              confidence:
+                data.predictions && data.predictions.length > 0
+                  ? data.predictions[0][1]
+                  : 0,
+              image_url: URL.createObjectURL(selectedImage),
+              error: data.error,
+            };
+            showResults(results);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            showError(`Failed to analyze image: ${error.message}`);
+          });
+      }
+
+      function showLoading() {
+        resultsContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>🤖 AI is analyzing your pose...</p>
+                    <p style="color: var(--fg4); font-size: 0.9rem;">Extracting landmarks and classifying pose</p>
+                </div>
+            `;
+      }
+
+      function showResults(results) {
+        if (!results.success) {
+          showError(results.error || "Analysis failed");
+          return;
+        }
+
+        const topPrediction = results.predictions[0];
+        const confidenceColor =
+          results.confidence > 0.7
+            ? "var(--green)"
+            : results.confidence > 0.5
+            ? "var(--yellow)"
+            : "var(--red)";
+
+        resultsContent.innerHTML = `
+                <div class="image-preview">
+                    <div class="image-container">
+                        <img src="${
+                          results.image_url
+                        }" alt="Analyzed pose" class="preview-image">
+                    </div>
+                </div>
+
+                <div class="prediction-results">
+                    <div class="top-prediction">
+                        <div class="pose-name">${topPrediction[0].replace(
+                          /_/g,
+                          " "
+                        )}</div>
+                        <div class="confidence" style="color: ${confidenceColor}">
+                            Confidence: ${(topPrediction[1] * 100).toFixed(1)}%
+                        </div>
+                    </div>
+
+                    <div class="all-predictions">
+                        <h4 style="color: var(--fg2); margin-bottom: 0.5rem;">Top 5 Predictions:</h4>
+                        ${results.predictions
+                          .map(
+                            ([name, conf]) => `
+                            <div class="prediction-item">
+                                <span class="prediction-name">${name.replace(
+                                  /_/g,
+                                  " "
+                                )}</span>
+                                <span class="prediction-confidence">${(
+                                  conf * 100
+                                ).toFixed(1)}%</span>
+                            </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            `;
+      }
+
+      function showError(message) {
+        resultsContent.innerHTML = `
+                <div class="error">
+                    <strong>❌ Error:</strong> ${message}
+                </div>
+                <div style="text-align: center; color: var(--fg4); padding: 2rem 0;">
+                    <p>Please try uploading a different image with a clear yoga pose.</p>
+                </div>
+            `;
+      }
+
+      // Add some interactive effects
+      document.addEventListener("DOMContentLoaded", () => {
+        // Animate tech badges
+        const badges = document.querySelectorAll(".tech-badge");
+        badges.forEach((badge, index) => {
+          badge.style.animationDelay = `${index * 0.1}s`;
+          badge.style.animation = "fadeInUp 0.6s ease forwards";
+        });
+      });
+
+      // CSS animations
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>

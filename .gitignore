@@ -1,8 +1,12 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -19,28 +23,73 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Environment
-.env
-.venv
-env/
-venv/
+# Model files (too large for git)
+*.pth
+*.pkl
+*.h5
+*.onnx
+*.pb
 
-# VS Code
-.vscode/
+# Data files (too large for git) 
+*.npz
+*.zip
+*.tar.gz
+data/*/
 
-# macOS
+# Logs
+*.log
+logs/
+
+# OS generated files
 .DS_Store
-**/.DS_Store
-
-# Training outputs (optional - can be regenerated)
-training_curves.png
-confusion_matrix.png
-result_*.jpg
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Temporary files
 *.tmp
-*.log
+*.temp
+temp/
+tmp/
+
+# Development artifacts
+archive/
+experiments/
+old/
+backup/
+
+# Training outputs
+training_curves.png
+confusion_matrix.png
+
+# FastAPI specific
+*.pid
+
+# Keep important sample files
+!samples/*.jpg
+!samples/*.jpeg
+!web/assets/*
